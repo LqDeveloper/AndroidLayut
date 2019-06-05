@@ -1,28 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ConstraintActivity">
 
+    <!--适合居中显示-->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#50f"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/letftTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="#0f0"
-        />
-    <TextView
-        android:id="@+id/letftTextView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="#f00"
-        />
+        <android.support.constraint.Guideline
+            android:id="@+id/centerGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="30dp"
+            android:background="#0f0"
+            app:layout_constraintEnd_toStartOf="@id/centerGuideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:background="#f00"
+            app:layout_constraintStart_toStartOf="@id/centerGuideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <!--Barrier 会靠近最长的控件的右边-->
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="#50f"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp">
+
+
+        <TextView
+            android:id="@+id/topTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="#0f0"
+            android:text="这个文字很长很长很长"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bottomTextView"
+            android:layout_width="wrap_content"
+            android:text="这个文字比较短"
+            android:gravity="center"
+            android:layout_height="28dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:background="#f00"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topTextView" />
+
+        <android.support.constraint.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="topTextView,bottomTextView"
+            app:barrierDirection="right"
+            />
+
+        <TextView
+            android:id="@+id/rightTextView"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:background="#0f0"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintStart_toEndOf="@+id/barrier"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</LinearLayout>
