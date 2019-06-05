@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TableActivity">
+
+    <!--
+    TableLayout可设置的属性包括全局属性及单元格属性。
+    全局属性
+    android:stretchColumns    设置可伸展的列。该列可以向行方向伸展，最多可占据一整行。
+    android:shrinkColumns     设置可收缩的列。当该列子控件的内容太多，已经挤满所在行，那么该子控件的内容将往列方向显示。
+    android:collapseColumns 设置要隐藏的列。
+    单元格属性
+    android:layout_column    指定该单元格在第几列显示
+    android:layout_span        指定该单元格占据的列数（未指定时，为1）
+    -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="表1：全局设置：列属性设置"
+        android:textColor="#f00"
+        android:textSize="15sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:collapseColumns="2"
+        android:orientation="vertical"
+        android:shrinkColumns="1"
+        android:stretchColumns="0">
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#0f0"
+                android:gravity="center"
+                android:text="该列可伸缩" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#f00"
+                android:gravity="center"
+                android:text="该列可伸缩" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#0ff"
+                android:gravity="center"
+                android:text="我被隐藏了" />
+
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="表2:单元格设置：指定单元格属性设置"
+        android:textColor="#f00"
+        android:textSize="15sp" />
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#0f0"
+                android:gravity="center"
+                android:text="我是第一列" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#f00"
+                android:gravity="center"
+                android:text="我是第二列" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#0ff"
+                android:gravity="center"
+                android:text="我是第三列" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="50dp"
+                android:layout_column="2"
+                android:background="#0f0"
+                android:gravity="center"
+                android:text="我跨了两列" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#f00"
+                android:gravity="center"
+                android:text="我是第二列" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#0ff"
+                android:gravity="center"
+                android:text="我是第三列" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_height="50dp"
+                android:layout_span="2"
+                android:background="#0f0"
+                android:gravity="center"
+                android:text="我占了两列" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#f00"
+                android:gravity="center"
+                android:text="我是第二列" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#0ff"
+                android:gravity="center"
+                android:text="我是第三列" />
+        </TableRow>
+    </TableLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="表3：应用一，非均匀布局"
+        android:textColor="#f00"
+        android:textSize="15sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:stretchColumns="*">
+
+        <TableRow android:padding="5dp">
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#0f0"
+                android:gravity="center"
+                android:text="一" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#f00"
+                android:gravity="center"
+                android:text="两个大字" />
+
+            <TextView
+                android:layout_height="50dp"
+                android:background="#0ff"
+                android:gravity="center"
+                android:text="非常多的大字" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="表4：应用二，均匀布局"
+        android:textColor="#f00"
+        android:textSize="15sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:stretchColumns="*">
+
+        <TableRow android:padding="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="#0f0"
+                android:gravity="center"
+                android:text="一" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="#f00"
+                android:gravity="center"
+                android:text="两个大字" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="#0ff"
+                android:gravity="center"
+                android:text="非常多的大字" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>
