@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this,FrameActivity.class);
             startActivity(intent);
         });
+
+        TextView constraintTextView = findViewById(R.id.constraintLayout);
+        constraintTextView.setOnClickListener((view)->{
+            Intent intent = new Intent(MainActivity.this,ConstraintActivity.class);
+            startActivity(intent);
+        });
     }
 
 }
