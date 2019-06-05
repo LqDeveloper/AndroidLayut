@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        TextView frameTextView = findViewById(R.id.frameLayout);
+        frameTextView.setOnClickListener((view)->{
+            Intent intent = new Intent(MainActivity.this,FrameActivity.class);
+            startActivity(intent);
+        });
     }
 
 }
